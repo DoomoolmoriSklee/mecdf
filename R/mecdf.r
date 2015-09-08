@@ -80,7 +80,15 @@ mecdf = function (x, continuous=FALSE, ...,
 	{	if (continuous) Fh = .uecdf.continuous
 		else Fh =.uecdf.step
 	}
-	extend (FUNCTION (.mecdf.main), "mecdf", continuous, Fh, Fst, nraw, nr, nc, x)
+	f <- extend(FUNCTION(.mecdf.main), "mecdf")
+	f$continuous = continuous
+	f$Fh = Fh
+	f$Fst = Fst
+	f$nraw = nraw
+	f$nr = nr
+	f$nc = nc
+	f$x = x
+	f
 }
 
 .mecdf.main = function (u)
@@ -103,7 +111,7 @@ print.mecdf = function (m, ...)
 	else paste (m$nc, "-variate", sep="")
 	type = if (m$continuous) "continuous" else "step"
 	cat ("mecdf_{", variate, ", ", type, "}\n", sep="")
-	print (samp (m$x) )
+	#print ( (m$x) )
 }
 
 plot.mecdf = function (m, ...)
