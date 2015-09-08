@@ -1,3 +1,25 @@
+#' surface plots of bivariate cdfs
+#' 
+#' Prototype functions for plotting bivariate CDFs using three dimensional
+#' graphics. Note that setting regular to false, can be very slow. Also note
+#' bcdfplot and bcdf.plot are deprecated.
+#' 
+#' 
+#' @aliases plotbcdf plotbcdf.mecdf plotbcdf.matrix bcdfplot bcdf.plot
+#' @param m Either an mecdf object or a square matrix.
+#' @param regular Logical (defaults to true), whether or not to use a regularly
+#' spaced grid. If false, the plot uses the actual data values.
+#' @param res Ignored unless regular is true. The number of points in both
+#' directions of the grid.
+#' @param ulim Ignored unless regular is true. A vector giving the minimum and
+#' maximum values for the first variable on the grid. Defaults to the minimum
+#' and maximum observed values.
+#' @param vlim Same as ulim, except for the second variable.
+#' @param mmin Minimum value.
+#' @param mmax Maximum value.
+#' @param labs .
+#' @param \dots .
+#' @export plotbcdf
 plotbcdf = function (m, ...) UseMethod ("plotbcdf")
 
 plotbcdf.mecdf = function (m, regular=TRUE, res=16, ulim, vlim, ...)

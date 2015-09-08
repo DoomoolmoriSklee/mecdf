@@ -25,6 +25,20 @@ mecdf.theme = function (theme)
 	options (mecdf.surface = list (line=sline, fill1=sfill1, fill2=sfill2) )
 }
 
+
+
+#' univariate continuous ecdf inverse
+#' 
+#' This function computes the inverse of a univariate continuous ECDF, with no
+#' model correction. This function is deprecated. Unlike the mecdf function, it
+#' doesn't return a function, rather it returns a scalar value.
+#' 
+#' 
+#' @param x A numeric vector.
+#' @param p Probability.
+#' @param sort Whether or not to sort the data. Unless the data is already
+#' sorted, this must be true.
+#' @export ecdfinv
 ecdfinv = function (x, p, sort=TRUE)
 {	n = length (x)
 	if (sort) x = sort (x)
