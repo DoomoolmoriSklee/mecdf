@@ -2,4 +2,6 @@
 
 export(ecdfinv)
 export(mecdf)
+export(plot.mecdf)
 export(plotbcdf)
+export(print.mecdf)

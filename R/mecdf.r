@@ -105,6 +105,7 @@ mecdf = function (x, continuous=FALSE, ...,
 	}
 }
 
+#' @export print.mecdf
 print.mecdf = function (m, ...)
 {	variate = if (m$nc == 1) "univariate"
 	else if (m$nc == 2) "bivariate"
@@ -114,6 +115,7 @@ print.mecdf = function (m, ...)
 	#print ( (m$x) )
 }
 
+#' @export plot.mecdf
 plot.mecdf = function (m, ...)
 {	p = m (m$x)
 	if (m$nc == 1) .uecdf.plot (m, p, m$continuous, ...)
